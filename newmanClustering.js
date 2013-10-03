@@ -3347,12 +3347,12 @@ function NewmanClustering() {
             dataObj.distances[hash] = d.count;
         });
 
-        dataObj = addDummyMetaNode(dataObj);
+        // dataObj = addDummyMetaNode(dataObj);
 
         treeObj=buildTreeByCommunities(dataObj, false);
         groups=findSubCommunities(treeObj,0,0);
 
-        return removeDummyMetaNode(groups);
+        // return removeDummyMetaNode(groups);
     }
 
     function addDummyMetaNode(dataObj) {
