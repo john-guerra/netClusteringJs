@@ -1,4 +1,4 @@
 netAnalysisJs
 =============
 
-A network analytics for javascript
+A network analytics library for javascript
