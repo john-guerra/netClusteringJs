@@ -15,18 +15,17 @@
     at http://www.gnu.org/licenses/.
 
 */
-/*global $ */
 /*jslint browser: true, devel: true, regexp: true, white: true */
 /*
 */
-function NewmanClustering() {
-    "use strict";
-    var self = this;
+"use strict";
 
-    function isArray(a) {
-        return a.constructor === Array;
-    }
+var netClustering = {
+    version: "0.1"
+};
 
+(function() {
+    // "use strict";
     //  Specific utilities: data import & recursive traverses
     function binaryTreeWalk(currentNode,tree,depth,doLeafAction,doDownAction,doUpAction){
         //  General purpose recursive binary depth-first tree walk, with three possible action functions:
@@ -45,16 +44,7 @@ function NewmanClustering() {
             depth-=1;
         }
     }
-    function treeWalk(tree,node,depth,preAction,postAction){  //  recursive tree walk
-        //  For any number of branches per node, not just binary
-        if(preAction){ preAction(tree,node,depth); }
-        if(isArray(tree)){
-            for(var i=0;i<tree.length;i++){
-                treeWalk(tree[i],i,depth+1,preAction,postAction);
-            }
-        }
-        if(postAction){ postAction(tree,node,depth); }
-    }
+
     //  Community detection algorithms and recursion
     function addClosestPairByCommunity(tree,deltaQ,a){
         //  Newman"s communities algorithm, http://arxiv.org/abs/cond-mat/0309508v1
@@ -315,7 +305,7 @@ function NewmanClustering() {
         // if (createdGroupForLoners) {
         //     g+=1;
         //     members+="~";
-        //     console.log("NewmanClustering lonersCount=" + lonersCount);
+        //     console.log("netClustering lonersCount=" + lonersCount);
         // }
 
         var numGroups = g + 1;
@@ -389,8 +379,8 @@ function NewmanClustering() {
 
 
     //Exports
-    self.buildTreeByCommunities = buildTreeByCommunities;
-    self.findSubCommunities = findSubCommunities;
+    netClustering.buildTreeByCommunities = buildTreeByCommunities;
+    netClustering.findSubCommunities = findSubCommunities;
     //buildTreeByCommunities parameter should be
     //Object {names: Array[39], distances: Array[0], method: "newman", useWeights: true}
 
@@ -398,7 +388,7 @@ function NewmanClustering() {
     //Receives nodes and edges on the d3 format clusters them, and return the clusters
     // the nodes should be a list of objects that at least contains an attribute id
     // and the edges should be a list of objects {source:index, target:index, count}
-    self.cluster = function (nodes, edges, clusterAttr, edgesCountAttr) {
+    netClustering.cluster = function (nodes, edges, clusterAttr, edgesCountAttr) {
         var dataObj = {},
             treeObj, groups = [], i;
 
@@ -446,7 +436,7 @@ function NewmanClustering() {
 
         // dataObj.names = nodes;
         dataObj.distances = {};
-        linksForClustering =  linksForClustering.filter(function (d) { return d.source !== d.target; }); //avoid self loops
+        linksForClustering =  linksForClustering.filter(function (d) { return d.source !== d.target; }); //avoid loops
         linksForClustering.forEach(function (d) {
             var hash = Math.min(d.source, d.target) + "~" + Math.max(d.source, d.target); // hash always has left key < right key})
             dataObj.distances[hash] = +d.count;
@@ -501,7 +491,7 @@ function NewmanClustering() {
                     //DUMMY was on an empty cluster, delete it
                     groups.splice(i, 1);
                 }
-                groups[i];
+                // groups[i];
             } else {
                 if (ele === "DUMMY" || ele === "DUMM") {
                     groups.splice(i, 1);//Remove
@@ -512,6 +502,4 @@ function NewmanClustering() {
         return groups;
     }
 
-
-    return self;
-}
+})();

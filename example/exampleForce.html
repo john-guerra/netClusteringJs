@@ -16,7 +16,7 @@
 <body>
 <button id="clusterButton" type="button">Cluster</button>
 <script src="http://d3js.org/d3.v3.min.js"></script>
-<script type="text/javascript" src="../newmanClustering.js">   </script>
+<script type="text/javascript" src="../netClustering.js">   </script>
 <!-- <script type="text/javascript" src="groupInABox.js">   </script> -->
 <script>
 
@@ -30,8 +30,6 @@ var force = d3.layout.force()
     .linkDistance(30)
     .size([width, height]);
 
-
-var clustering = new NewmanClustering();
 
 // var gb = GroupInABox(force, "");
 
@@ -76,7 +74,7 @@ d3.json("miserables.json", function(error, graph) {
   });
 
   d3.select("#clusterButton").on("click", function () {
-    clustering.cluster(graph.nodes, graph.links);
+    ncmClustering.cluster(graph.nodes, graph.links);
 
     svg.selectAll(".node").transition().duration(500).style("fill", function(d) { return color(d.cluster); });
   });
