@@ -74,7 +74,7 @@ d3.json("miserables.json", function(error, graph) {
   });
 
   d3.select("#clusterButton").on("click", function () {
-    ncmClustering.cluster(graph.nodes, graph.links);
+    netClustering.cluster(graph.nodes, graph.links);
 
     svg.selectAll(".node").transition().duration(500).style("fill", function(d) { return color(d.cluster); });
   });
