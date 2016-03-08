@@ -327,7 +327,7 @@ var netClustering = {
 
         var t = splitInfo.members.split("~");  //  string to array
         var groups = [];
-        for(var g = 0; g < numGroups; g++) {
+        for(var g = 0; g < t.length; g++) {
             groups.push((t[g]).split(","));
         }
         //  groups is now a set of nested arrays of names, what we return
