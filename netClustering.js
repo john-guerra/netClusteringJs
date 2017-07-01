@@ -401,33 +401,30 @@ var netClustering = {
 
         var linksForClustering  = [];
         //Do edges come with pointers to the nodes or just indexes?
-        if (edges.length>0 && typeof(edges[0].source)==="object") {
-            linksForClustering = edges.map(function (d) {
-                var sourceId=nodes.indexOf(d.source),
-                    targetId=nodes.indexOf(d.target);
-                if (sourceId===-1 || targetId===-1) {
-                    return null;
-                } else {
-                    return {
-                        source: sourceId,
-                        target: targetId,
-                        count : d[edgesCountAttr]!==undefined ? d[edgesCountAttr] : 1
+        if(edges.length > 0){
+            edges.forEach(function (d){
+                if(typeof d.source === "object"){
+                    var sourceId=nodes.indexOf(d.source),
+                        targetId=nodes.indexOf(d.target);
+                    if (sourceId!==-1 && targetId!==-1) {
+                        linksForClustering.push({
+                            source: sourceId,
+                            target: targetId,
+                            count : d[edgesCountAttr]!==undefined ? d[edgesCountAttr] : 1
+                        });
+                    } else {
+                        // source or target doesn't exist
+                        // console.log("source or target doesn't exist");
                     }
-
+                }else{
+                    //copy the links to ensure they have counts
+                    linksForClustering.push({
+                        source: d.source,
+                        target: d.target,
+                        count: d[edgesCountAttr]!==undefined ? d[edgesCountAttr] : 1
+                    });
                 }
-            })
-        } else {
-            //copy the links to ensure they have counts
-
-            edges.forEach(function (d) {
-                linksForClustering.push({
-                    source: d.source,
-                    target: d.target,
-                    count: d[edgesCountAttr]!==undefined ? d[edgesCountAttr] : 1
-                });
             });
-
-
         }
 
         dataObj.method = "newman";
