@@ -13,7 +13,7 @@ The code is based on an implementation created by Robin W. Spencer for his site 
 
 # Install
 
-```
+```javascript
 npm install netclustering
 ```
 
