@@ -1,5 +1,5 @@
-graph = require("./data/ieeevisNetwork.json");
-netClustering = require("./js/netClustering.js");
+graph = require("./ieeevisNetwork.json");
+netClustering = require("./netClustering.js");
 var jsonfile = require('jsonfile')
 
 var dictNodes = {};
@@ -19,7 +19,7 @@ var links = graph.links.map(function (d) {
 netClustering.cluster(graph.nodes, links);
 // graph.links = links;
 
-var file = './data/ieeevisNetworkClustered.json'
+var file = './ieeevisNetworkClustered.json'
 jsonfile.writeFile(file, graph, function (err) {
   console.error(err)
 })

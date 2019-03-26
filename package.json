@@ -1,0 +1,41 @@
+{
+  "name": "netclustering",
+  "version": "0.0.1",
+  "description": "A small library for clustering Networks",
+  "main": "dist/netclustering.min.js",
+  "module": "dist/netclustering.esm.js",
+  "browser": "dist/netclustering.min.js",
+  "unpkg": "dist/netclustering.min.js",
+  "jsdelivr": "dist/netclustering.min.js",
+  "dependencies": {},
+  "devDependencies": {
+    "prettier": "^1.16.4",
+    "rollup": "^0.65.0",
+    "rollup-plugin-ascii": "0.0.3",
+    "rollup-plugin-commonjs": "^9.1.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-terser": "^2.0.2"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "node test/test.js",
+    "pretest": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/john-guerra/netClusteringJS.git"
+  },
+  "keywords": [
+    "Network Analytics"
+  ],
+  "author": {
+    "name": "John Alexis Guerra Gómez",
+    "url": "https://johnguerra.co"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/john-guerra/netClusteringJS/issues"
+  },
+  "homepage": "https://github.com/john-guerra/netClusteringJS#readme"
+}
