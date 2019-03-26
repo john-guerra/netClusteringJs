@@ -29,5 +29,5 @@ declare namespace netClustering {
         target: number | string;
     }
     function cluster(nodes: any[], edges: Edge[], clusterAttr?: string, edgesCountAttr?: string): any[];
-    
+
 }
