@@ -1,6 +1,6 @@
 {
   "name": "netclustering",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A small library for clustering Networks",
   "main": "dist/netclustering.min.js",
   "module": "dist/netclustering.esm.js",
