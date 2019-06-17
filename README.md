@@ -33,7 +33,7 @@ For the web
 
 ```html
 <html>
-<script src="https://unpkg.com/navio/dist/navio.min.js"></script>
+<script src="https://unpkg.com/netclustering/dist/netclustering.min.js"></script>
 <script>
 import netClustering from "netclustering";
 
