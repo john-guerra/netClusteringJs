@@ -33,10 +33,8 @@ For the web
 
 ```html
 <html>
-<script src="https://unpkg.com/netclustering/dist/netclustering.min.js"></script>
+<script src="https://unpkg.com/netclustering/dist/netClustering.min.js"></script>
 <script>
-import netClustering from "netclustering";
-
 var nodes = ["a", "b", "c"];
 var links = [{source:0, target:1, count:1}];
 var groups = netClustering.cluster(nodes, links );
