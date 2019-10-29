@@ -1,12 +1,12 @@
 {
-  "name": "netclustering",
+  "name": "netClustering",
   "version": "0.0.3",
   "description": "A small library for clustering Networks",
-  "main": "dist/netclustering.min.js",
-  "module": "dist/netclustering.esm.js",
-  "browser": "dist/netclustering.min.js",
-  "unpkg": "dist/netclustering.min.js",
-  "jsdelivr": "dist/netclustering.min.js",
+  "main": "dist/netClustering.min.js",
+  "module": "dist/netClustering.esm.js",
+  "browser": "dist/netClustering.min.js",
+  "unpkg": "dist/netClustering.min.js",
+  "jsdelivr": "dist/netClustering.min.js",
   "dependencies": {},
   "devDependencies": {
     "prettier": "^1.16.4",
