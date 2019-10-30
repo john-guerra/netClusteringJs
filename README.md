@@ -24,7 +24,7 @@ On node
 ```javascript
 import netClustering from "netclustering";
 
-var nodes = ["a", "b", "c"];
+var nodes = [{name:"a"},{name:"b"}, {name:"c"}];
 var links = [{source:0, target:1, count:1}];
 var groups = netClustering.cluster(nodes, links );
 ```
