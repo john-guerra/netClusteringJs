@@ -8,6 +8,7 @@ const copyright = `// ${meta.homepage} v${
   meta.version
 } Copyright ${new Date().getFullYear()} ${meta.author.name}`;
 
+
 export default [
   {
     input: "src/netClustering.js",
@@ -39,6 +40,7 @@ export default [
         browser: true,
       }),
       ascii(),
+      terser({output: {preamble: copyright}})
     ],
     external: [],
     output: {
