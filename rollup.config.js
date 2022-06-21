@@ -1,10 +1,12 @@
 import ascii from "rollup-plugin-ascii";
 import node from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
-import {terser} from "rollup-plugin-terser";
+import { terser } from "rollup-plugin-terser";
 import * as meta from "./package.json";
 
-const copyright = `// ${meta.homepage} v${meta.version} Copyright ${(new Date).getFullYear()} ${meta.author.name}`;
+const copyright = `// ${meta.homepage} v${
+  meta.version
+} Copyright ${new Date().getFullYear()} ${meta.author.name}`;
 
 export default [
   {
@@ -13,12 +15,11 @@ export default [
       node({
         jsxnext: true,
         main: true,
-        browser: true
+        browser: true,
       }),
-      ascii()
+      ascii(),
     ],
-    external: [
-    ],
+    external: [],
     output: {
       extend: true,
       banner: copyright,
@@ -26,22 +27,40 @@ export default [
       format: "umd",
       indent: false,
       name: "netClustering",
-      globals: {
-
-      }
-    }
+      globals: {},
+    },
   },
   {
     input: "src/netClustering.js",
     plugins: [
       node({
-        jsxnext: true
+        jsxnext: true,
+        main: true,
+        browser: true,
       }),
       ascii(),
-      commonjs()
     ],
-    external: [
+    external: [],
+    output: {
+      extend: true,
+      banner: copyright,
+      file: "dist/netClustering.min.js",
+      format: "umd",
+      indent: false,
+      name: "netClustering",
+      globals: {},
+    },
+  },
+  {
+    input: "src/netClustering.js",
+    plugins: [
+      node({
+        jsxnext: true,
+      }),
+      ascii(),
+      commonjs(),
     ],
+    external: [],
     output: {
       extend: true,
       banner: copyright,
@@ -49,9 +68,7 @@ export default [
       format: "esm",
       indent: false,
       name: "netClustering",
-      globals: {
-
-      }
-    }
-  }
+      globals: {},
+    },
+  },
 ];

@@ -1,5 +1,5 @@
 {
-  "name": "netClustering",
+  "name": "netclustering",
   "version": "0.0.4",
   "description": "A small library for clustering Networks",
   "main": "dist/netClustering.min.js",
