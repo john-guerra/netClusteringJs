@@ -9,7 +9,7 @@
   "jsdelivr": "dist/netClustering.min.js",
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^6.6.0",
+    "eslint": "^9.32.0",
     "eslint-config-prettier": "^6.5.0",
     "prettier": "^1.18.2",
     "rollup": "^0.65.0",
